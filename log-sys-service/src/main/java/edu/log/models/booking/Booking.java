@@ -1,5 +1,6 @@
 package edu.log.models.booking;
 
+import edu.log.models.warehouse.Warehouse;
 import edu.log.models.booking.enums.*;
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -11,9 +12,6 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "from_address")
-    private String fromAddress;
 
     @Column(name = "to_address")
     private String toAddress;
@@ -38,14 +36,19 @@ public class Booking {
     @Column(name = "distance")
     private Double distance;
 
+    @ManyToOne
+    @JoinColumn(name = "warehouse_id", referencedColumnName = "id", nullable = false)
+    private Warehouse warehouse;
+
     @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private BookingQuote bookingQuote;
 
     public Booking() {}
 
-    public Booking(String fromAddress, String toAddress, String description, BookingServiceType serviceType, Double volume, Double weight, Double distance) {
-        this.fromAddress = fromAddress;
+    public Booking(Warehouse warehouse, String toAddress, String description, BookingServiceType serviceType, Double volume, Double weight, Double distance) {
+        // this.fromAddress = fromAddress;
+        this.warehouse = warehouse;
         this.toAddress = toAddress;
         this.description = description;
         this.serviceType = serviceType;
@@ -58,8 +61,8 @@ public class Booking {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getFromAddress() { return fromAddress; }
-    public void setFromAddress(String fromAddress) { this.fromAddress = fromAddress; }
+    public Warehouse getWarehouse() { return warehouse; }
+    public void setWarehouse(Warehouse warehouse) { this.warehouse = warehouse; }
 
     public String getToAddress() { return toAddress; }
     public void setToAddress(String toAddress) { this.toAddress = toAddress; }
@@ -89,7 +92,7 @@ public class Booking {
     public String toString() {
         return "Booking{" +
                 "id=" + id +
-                ", fromAddress='" + fromAddress + '\'' +
+                ", warehouse=" + warehouse +
                 ", toAddress='" + toAddress + '\'' +
                 ", description='" + description + '\'' +
                 ", serviceType=" + serviceType +

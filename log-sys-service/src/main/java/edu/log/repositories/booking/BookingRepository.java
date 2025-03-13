@@ -9,6 +9,5 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     Booking findById(long id);
     Booking findByBookingQuoteId(long id);
     Booking findByStatus(String status);
-    Booking findByFromAddress(String fromAddress);
     Booking findByToAddress(String toAddress);
 }
