@@ -13,3 +13,6 @@ To run the Spring Boot application, cd to `log-sys-service` and run the followin
 - Example: jdbc:h2:file:C:\Users\aflic\Desktop\API\project\EN.605.789_Project\log-sys-service\src\data\log-db;DB_CLOSE_ON_EXIT=FALSE;
 3. In the User Name add `sa`
 4. Select Connect to connect
+
+## Swagger
+- Available at http://localhost:8080/swagger-ui/index.html
