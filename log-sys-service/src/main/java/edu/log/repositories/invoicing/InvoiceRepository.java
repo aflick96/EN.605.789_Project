@@ -1,11 +1,10 @@
 package edu.log.repositories.invoicing;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
-// import org.springframework.stereotype.Repository;
-// import java.util.List;
+import edu.log.models.invoicing.Invoice;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-// public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
-//     Invoice findById(long id);
-//     List<Invoice> findByBookingId(long bookingId);
-//     List<Invoice> findByStatus(String status);
-// }
+@Repository
+public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
+    Invoice findByBookingId(long bookingId);
+}
