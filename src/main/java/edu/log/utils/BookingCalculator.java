@@ -36,6 +36,7 @@ public class BookingCalculator {
                 return Math.min(estimatedDays, 2);
             case PRIORITY:
                 return Math.min(estimatedDays, 3);
+            case FLAT_RATE:
             case ECONOMY:
             case INTERNATIONAL:
                 return Math.min(estimatedDays, 5);
