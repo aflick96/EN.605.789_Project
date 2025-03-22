@@ -42,4 +42,16 @@ public class BookingController {
         if (createdBooking == null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Booking could not be created");
         return ResponseEntity.status(201).body(createdBooking);
     }
+    @DeleteMapping
+    public ResponseEntity<Void> deleteAllBookings() {
+        try {
+            s.deleteAllBookings();
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            e.printStackTrace(); // or log.error("Error deleting bookings", e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error deleting bookings", e);
+        }
+    }
+    
+
 }
