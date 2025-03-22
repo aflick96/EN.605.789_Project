@@ -1,3 +1,4 @@
+dto\BookingRequestDTO.class
 edu\log\repositories\shipping\ShippingStatusRepository.class
 edu\log\controllers\WarehouseController.class
 edu\log\utils\BookingCalculator.class
@@ -11,6 +12,7 @@ edu\log\models\booking\enums\BookingServiceType.class
 edu\log\models\booking\enums\BookingStatus.class
 edu\log\controllers\BookingController.class
 edu\log\services\google\GoogleMapsService.class
+edu\log\utils\BookingCalculator$1.class
 edu\log\exceptions\GlobalExceptionHandler.class
 edu\log\models\booking\Booking.class
 edu\log\controllers\ShippingStatusController.class
