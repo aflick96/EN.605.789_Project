@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "booking_quote")
 public class BookingQuote {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +19,7 @@ public class BookingQuote {
     private Double price;
 
     @Column(name = "estimated_delivery_time", nullable = false)
-    private Integer estimatedDeliveryTime; //days
+    private Integer estimatedDeliveryTime; // in days
 
     public BookingQuote() {}
 
@@ -46,9 +45,8 @@ public class BookingQuote {
     public String toString() {
         return "BookingQuote{" +
                 "id=" + id +
-                ", booking=" + booking +
                 ", price=" + price +
                 ", estimatedDeliveryTime=" + estimatedDeliveryTime +
                 '}';
-    }   
+    }
 }

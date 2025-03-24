@@ -47,7 +47,6 @@ public class Booking {
     public Booking() {}
 
     public Booking(Warehouse warehouse, String toAddress, String description, BookingServiceType serviceType, Double volume, Double weight, Double distance) {
-        // this.fromAddress = fromAddress;
         this.warehouse = warehouse;
         this.toAddress = toAddress;
         this.description = description;
